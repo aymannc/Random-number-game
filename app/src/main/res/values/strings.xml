@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Random Number Game</string>
+    <string name="ok_eng">OK</string>
+    <string name="ok_ar">OK</string>
+    <string name="replay_eng">Replay</string>
+    <string name="buttonName">Add</string>
+</resources>
