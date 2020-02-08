@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">احزر العدد</string>
+    <string name="_0">0</string>
+    <string name="bigger_number_string">الرقم أكبر</string>
+    <string name="buttonName">إضافة</string>
+    <string name="empty_number_click">أنت لم تدخل أي رقم!</string>
+    <string name="game_alr_over_string">انتهت اللعبة بالفعل!</string>
+    <string name="guess_string">خمن</string>
+    <string name="history">السجل</string>
+    <string name="place_holder_add_number">أضف رقم</string>
+    <string name="quit_string">الخروج</string>
+    <string name="replay_string">إعادة</string>
+    <string name="reply_game">إعادة !</string>
+    <string name="reset_game">اعادة اللعبة</string>
+    <string name="reveal_number_string">الرقم كان</string>
+    <string name="score_label">" : النتيجة"</string>
+    <string name="show_score_string">"نتيجتك هي "</string>
+    <string name="small_number_string">الرقم أصغر</string>
+    <string name="win_string">لقد فزت !</string>
+    <string name="you_lost_string">لقد خسرت !</string>
+</resources>

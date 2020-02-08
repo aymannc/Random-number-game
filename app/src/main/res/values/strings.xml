@@ -1,7 +1,21 @@
 <resources>
-    <string name="app_name">Random Number Game</string>
-    <string name="ok_eng">OK</string>
-    <string name="ok_ar">OK</string>
-    <string name="replay_eng">Replay</string>
+    <string name="app_name">Guess a number</string>
+    <string name="replay_string">Replay</string>
     <string name="buttonName">Add</string>
+    <string name="quit_string">Exit</string>
+    <string name="win_string">You won !</string>
+    <string name="reveal_number_string">The number was </string>
+    <string name="game_alr_over_string">Game already over !</string>
+    <string name="you_lost_string">You lost !</string>
+    <string name="show_score_string">Your score is </string>
+    <string name="bigger_number_string">The number is bigger </string>
+    <string name="small_number_string">The number is smaller </string>
+    <string name="empty_number_click">You did not enter any number !</string>
+    <string name="reply_game">Replay !</string>
+    <string name="guess_string">Guess</string>
+    <string name="score_label">Score :</string>
+    <string name="_0">0</string>
+    <string name="place_holder_add_number">Add a number</string>
+    <string name="reset_game">Replay the game</string>
+    <string name="history">History</string>
 </resources>

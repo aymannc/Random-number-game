@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     private int the_number;
     private int score;
-    private int nbr_trys;
+    private int nbr_tries;
     private Button play_button;
     private ProgressBar progressBar;
     private TextView scoreLabel;
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void replay() {
         getRandomNumber();
-        nbr_trys = 0;
-        String text = "0 / " + nbr_guesses_allowed;
+        nbr_tries = 0;
+        String text = nbr_tries + " / " + nbr_guesses_allowed;
         trysLabel.setText(text);
-        progressBar.setProgress(nbr_trys);
+        progressBar.setProgress(nbr_tries);
         listItems.clear();
         adapter.notifyDataSetChanged();
     }
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
     private void showAlert(String title, String content) {
         new AlertDialog.Builder(this).setTitle(title)
                 .setMessage(content)
-                .setPositiveButton("Quit", (dialog, which) -> {
+                .setPositiveButton(getString(R.string.quit_string), (dialog, which) -> {
                 })
-                .setNegativeButton(R.string.replay_eng, (dialog, which) -> {
+                .setNegativeButton(getString(R.string.replay_string), (dialog, which) -> {
                     init();
                 })
                 .show();
@@ -82,33 +82,38 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void buttonClick(View view) {
-        nbr_trys += 1;
-        if (nbr_trys > nbr_guesses_allowed) {
-            showAlert("Game already over !", "");
+        nbr_tries++;
+        if (nbr_tries > nbr_guesses_allowed) {
+            showAlert(getString(R.string.game_alr_over_string), "");
         } else {
             try {
                 int input_number = Integer.valueOf(textInput.getText().toString());
-                progressBar.setProgress(nbr_trys);
-                String text = nbr_trys + " / " + nbr_guesses_allowed;
+                progressBar.setProgress(nbr_tries);
+                String text = nbr_tries + " / " + nbr_guesses_allowed;
                 trysLabel.setText(text);
                 if (the_number == input_number) {
-                    Toast.makeText(this, "You won !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.win_string, Toast.LENGTH_SHORT).show();
                     setScore();
                     replay();
-                } else if (nbr_trys == nbr_guesses_allowed) {
-                    showAlert("You lost !", "The number was " + the_number + "\n\nYour score is " + score);
+                } else if (nbr_tries == nbr_guesses_allowed) {
+                    showAlert(getString(R.string.you_lost_string), getString(R.string.reveal_number_string) +
+                            the_number + "\n\n" + getString(R.string.show_score_string) + score);
                 } else {
-                    addToView(input_number);
+                    addElementToListView(input_number);
                     if (the_number > input_number) {
-                        Toast.makeText(this, "The number is bigger", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.bigger_number_string), Toast.LENGTH_SHORT)
+                                .show();
                     } else {
-                        Toast.makeText(this, "The number is smaller", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.small_number_string), Toast.LENGTH_SHORT)
+                                .show();
                     }
                 }
                 textInput.setText("");
             } catch (Exception e) {
                 System.out.println("Error click button" + e.getMessage());
-                Toast.makeText(this, "You did not enter a number", Toast.LENGTH_SHORT).show();
+                nbr_tries--;
+                Toast.makeText(this, getString(R.string.empty_number_click), Toast.LENGTH_SHORT)
+                        .show();
             }
 
         }
@@ -118,17 +123,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void setScore() {
         int base_increment = 20;
-        score += base_increment * nbr_guesses_allowed / nbr_trys;
+        score += base_increment * nbr_guesses_allowed / nbr_tries;
         scoreLabel.setText(String.valueOf(score));
     }
 
-    private void addToView(int input_number) {
+    private void addElementToListView(int input_number) {
         String s = ". " + input_number + (input_number > the_number ? " > x" : " < x");
         listItems.add(0, listItems.size() + 1 + s);
         adapter.notifyDataSetChanged();
     }
 
     public void replay(View view) {
-        showAlert("Replay", "Do you want to reset the game ?");
+        showAlert(getString(R.string.reply_game), "Do you want to reset the game ?");
     }
 }
