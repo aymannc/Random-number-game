@@ -1,7 +1,7 @@
 ## Random-number-game
 An android game to guess a number between 1 and 100 in 6 guesses or less.
 
-1 this is a test
+The app supports arabic and english
 ## Screenshots :
 <p float="left">
   <img src="screens/Guess a number (1).jpg" alt="Screenshot"
